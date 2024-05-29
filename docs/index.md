@@ -2,4 +2,4 @@
 
 Test content
 
-![Alt text](_images/insights_per_month.png "insights per month")
+![Alt text](assets/insights_per_month.png "insights per month")
