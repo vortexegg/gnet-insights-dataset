@@ -2,4 +2,9 @@
 
 Test content
 
-![Alt text](assets/insights_per_month.png "insights per month")
+![](assets/insights_per_month.png "insights per month")
+
+
+Solarized dark             |  Solarized Ocean
+:-------------------------:|:-------------------------:
+![](assets/insights_per_month.png "insights per month")  |  ![](assets/insights_per_month.png "insights per month")
