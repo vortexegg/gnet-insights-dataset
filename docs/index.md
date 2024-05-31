@@ -58,7 +58,6 @@ Based on the above points about critical terrorism studies and the epistemic lim
 
 ![](assets/top_authors_per_year.png)
 ![](assets/top_authors.png)
-![](assets/distinct_authors_per_year.png)
 ![](assets/dis_insights_per_author.png)
 
 - Tags
