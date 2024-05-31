@@ -1,5 +1,9 @@
 # GNET Insights Dataset
 
+## Blog post
+
+You can find a blog post describing this dataset and analyzing its key features [here](https://vortexegg.github.io/gnet-insights-dataset/).
+
 ## Dataset biography
 
 ### Introduction
