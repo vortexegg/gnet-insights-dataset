@@ -1,6 +1,7 @@
 # Curating the GNET Insights Dataset
 
 **Author**: Scott Johnson
+
 **Published**: June 1, 2024
 
 ## I. Introduction
