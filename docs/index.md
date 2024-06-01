@@ -89,7 +89,7 @@ The R script used to conduct the computational analysis can be [found here](http
 
 ### 1. Overall insight stats and publication dates 
 
-The dataset contains 615 insight posts. These posts cover a range of publication dates from December 31st, 2019 to May 5th, 2024. This end date is the date when the dataset was last updated by scraping the GNET Research website.
+The dataset contains a total of 615 insight posts. These posts cover a range of publication dates from December 31st, 2019 to May 5th, 2024. This end date is the date when the dataset was last updated by scraping the GNET Research website.
 
 ***Summary statistics: Insights published per year***
 
@@ -106,13 +106,11 @@ The discrepancy between the median and min number of insights per year is due to
 | 21  | 12     | 11   | 3   |
 
 Trends in the number of insights published each month is best represented through a visualization. As can be seen, there is a wide variability in the rate of publication from month-to-month, with extend periods of high and low rates of publication.
-
-*Fig. 1: Insights published each month*
-![](assets/fig1.png "Insights published each month")
+![](assets/fig1.png "Insights published each month") *Fig. 1: Insights published each month*
 
 ### 2. Authors and author publication trends
 
-The dataset contains insights that have been published by 453 distinct authors.
+The dataset contains insights that have been published by 453 different authors.
 
 ***Summary statistics: Contributions by multiple authors per insight***
 
@@ -128,52 +126,44 @@ While some insights have multiple authors who all contributed to writing the ins
 | --- | ------ | ---- | --- |
 | 21  | 1      | 2    | 1   |
 
-Conversely, several authors have written or contributed to more than one insight. We see that the max number of insights for a single author is twenty-one, while the average is between 1-2 insights. The discrepancy between these stats implies that there is a long tail of single-insight contributors. Visualizing this distribution, we can see that there the majority of authors have contributed only a single insight, several more authors have contributed between two to five insights, and a small number of authors have contributed six or more insights.
+Conversely, several authors have written or contributed to more than one insight. We see that the max number of insights for a single author is twenty-one, while the average is between 1-2 insights. The discrepancy between these stats implies that there is a long tail of single-insight contributors. Visualizing this distribution, we can see that the majority of authors have contributed only a single insight, several more authors have contributed between two to five insights, and a small number of authors have contributed six or more insights.
 
-*Fig. 2: Distribution of insights per author*
-![](assets/fig2.png "Distribution of insights per author")
+![](assets/fig2.png "Distribution of insights per author") *Fig. 2: Distribution of insights per author*
 
-There are seventeen authors who have contributed to six or more insights. Here we can see the top contributing authors and the number of insights per author.
+There are seventeen authors who have contributed to six or more insights. Here we can see the top contributing authors and the number of insights per author:
 
-*Fig. 3: Insights by top contributing authors*
 ![](assets/fig3.png "Insights by top contributing authors")
+*Fig. 3: Insights by top contributing authors*
 
-For the top ten authors, we can visualize trends in how they have contributed insights over the timespan of GNET's publications. Of interest, we can see that the top contributing authors have all had runs of consistent publications that each drop off after a certain point. Notably most top authors have dropped off from writing sometime in 2023, while two top authors have continued consistently publishing in to 2024 (these also happen to be the two top contributors of all time).
+For the top ten authors, we can visualize trends in how they have contributed insights over GNET's publication timespan. Of interest, we can see that the top contributing authors have all had runs of consistent publications that each drop off after a certain point. Notably most top authors have dropped off from writing sometime in 2023, while two top authors have continued consistently publishing in to 2024 (these also happen to be the two top contributors of all time).
 
-*Fig. 4: Insights by top contributing authors over time*
 ![](assets/fig4.png "Insights by top contributing authors over time")
+*Fig. 4: Insights by top contributing authors over time*
 
 ### 3. Analysis of tags
 
-- Get the count of distinct tags
-- There are 87 distinct tags across all insights
-- How frequently are individual tags applied to insights?
-- Max # of insights associated with a single tag: 197
-- Median: 10
-- Mean: 18
-- Min: 2
-- Like with the authors, there is also a large difference between the tag with
-- the max number of insights and those with the median number of insights. Let's graph this to see
-- what the distribution looks like
+The dataset contains insights that have been applied with a mix of 87 different tags.
 
-![](assets/fig5.png)
+***Summary statistics: Insights per tag***
 
-- We can see that most tags have ~20 or fewer insights associated with them, while
-- a small number of tags have up to hundreds of associated insights
-- Investigate the top most used tags (> 20 insights)
-- There are 22 tags that have been applied to 21 or more insights
-- Plot the top tags most used tags and how many insights they are applied to
+| Max | Median | Mean | Min |
+| --- | ------ | ---- | --- |
+| 197 | 10     | 18   | 2   |
 
-![](assets/fig6.png)
+As with authors, there is a wide discrepancy between the max and median number of tags, implying a long tail of insights with only a small number of tags. Visualizing the distribution of insights per tag, we can see that most tags have been applied to approximately twenty or fewer insights. A small number of tags have been applied to anywhere between twenty-one to several hundred insights.
 
-- Now let's visualize how the top tags are used on a monthly basis.
-- Plot the top tags per month as a stacked area chart to show the relative changes in usage over time
-- There are some interesting patterns or regimes shown by this chart.
-- From 2019 through 2021 There was a larger focus on 'Social media' and 'Islamic State'
-- From 2021 through 2024, there was an increasing focus on 'Far-Right' and, eventually, 'Gender' tags
-- Then from 2024, consistently used tags related to Telegram, QAnon fell off, the tag for Gender fell off, and the Far-Right tag decline while Islamic State came back into dominance.
+![](assets/fig5.png "Distribution of insights per tag")
+*Fig. 5: Distribution of insights per tag*
 
-![](assets/fig7.png)
+There are twenty-two tags that have been applied to twenty-one or more insights. Here we can see the top tags and the number of insights they have been applied to. The most frequently applied tags are "Far-Right", "Social Media", "Islamic State", "Propaganda", and "Radicalisation". This combination of tags lends a key insight into the nature of the problem of digital extremism as it is carried out on social media platforms (or at least, what GNET insight authors choose to publish about it).
+
+![](assets/fig6.png "Top tags applied to GNET insights")
+*Fig. 6: Top tags applied to GNET insights*
+
+For the top ten tags, we can visualize trends in how these tags have been applied to insights over GNET's publication timespan. There are a few interesting patterns revealed by this plot. From 2019 to 2021 there was a larger relative focus on insights tagged with "Social Media" and "Islamic State". This changes substantially in early 2021, leading to an increasing focus on "Far-Right" insights and, eventually, insights about "Gender"-related issues of extremism. Then in early 2024 there is another shift. Tags that were consistently used from 2021 entirely fall off, including "Gender", "Telegram", and "QAnon", while the "Far-Right" tag drastically shrinks while "Islamic State" comes back into prominence.
+
+![](assets/fig7.png "Top tags applied to GNET insights by month and year")
+*Fig. 7: Top tags applied to GNET insights by month and year*
 
 ### 4. Text analysis to demonstrate what might be done with the textual content of this dataset.
 
