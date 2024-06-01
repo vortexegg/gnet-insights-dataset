@@ -106,7 +106,9 @@ The discrepancy between the median and min number of insights per year is due to
 | 21  | 12     | 11   | 3   |
 
 Trends in the number of insights published each month is best represented through a visualization. As can be seen, there is a wide variability in the rate of publication from month-to-month, with extend periods of high and low rates of publication.
-![](assets/fig1.png "Insights published each month") *Fig. 1: Insights published each month*
+
+![](assets/fig1.png "Insights published each month")
+*Fig. 1: Insights published each month*
 
 ### 2. Authors and author publication trends
 
@@ -128,7 +130,8 @@ While some insights have multiple authors who all contributed to writing the ins
 
 Conversely, several authors have written or contributed to more than one insight. We see that the max number of insights for a single author is twenty-one, while the average is between 1-2 insights. The discrepancy between these stats implies that there is a long tail of single-insight contributors. Visualizing this distribution, we can see that the majority of authors have contributed only a single insight, several more authors have contributed between two to five insights, and a small number of authors have contributed six or more insights.
 
-![](assets/fig2.png "Distribution of insights per author") *Fig. 2: Distribution of insights per author*
+![](assets/fig2.png "Distribution of insights per author")
+*Fig. 2: Distribution of insights per author*
 
 There are seventeen authors who have contributed to six or more insights. Here we can see the top contributing authors and the number of insights per author:
 
@@ -140,7 +143,7 @@ For the top ten authors, we can visualize trends in how they have contributed in
 ![](assets/fig4.png "Insights by top contributing authors over time")
 *Fig. 4: Insights by top contributing authors over time*
 
-### 3. Analysis of tags
+### 3. Insight tags and tag trends
 
 The dataset contains insights that have been applied with a mix of 87 different tags.
 
@@ -165,40 +168,36 @@ For the top ten tags, we can visualize trends in how these tags have been applie
 ![](assets/fig7.png "Top tags applied to GNET insights by month and year")
 *Fig. 7: Top tags applied to GNET insights by month and year*
 
-### 4. Text analysis to demonstrate what might be done with the textual content of this dataset.
+### 4. Demonstration of text analysis for topical trends
 
-- Plot the top most used words
+Apart from summary statistics, this section demonstrates the value of one of the key uses of the GNET Insights Dataset—the application of text analysis techniques to insight post texts to understand trends in topics, mentioned keywords, etc. This demonstration only scratches the surface of what is possible, by visualizing the most frequently used words and bigrams in the text corpus, as well as trends in how the most frequently used bigrams have changed over time.
 
-![](assets/fig10.png)
+Here we see a plot of the top most used words in the GNET insight texts, and their frequency of use:
 
-- Next we evaluate the commonly used bigrams in the insight texts.
-- Get the top most used bigrams and their usage counts
-- Plot the top most used bigrams and their counts
+![](assets/fig10.png "Top most used words in GNET insights")
+*Fig. 10: Top most used words in GNET insights*
 
-![](assets/fig11.png)
+While this is interesting, visualizing the top most used bigrams is much more revealing of the general topics discussed throughout the GNET insight texts. The two most used bigrams, "far right" and "social media", followed by "islamic state" and "right wing", are indeed reflective of the overall GNET Research blog and also align with the most commonly used tags. But we also see other important concepts that contextualize topics at the intersection of technology and terrorism, such as "covid 19" (a major driver of extremist conspiracy narratives), or "tech companies" and "content moderation" (a primary site for responding to the harms of online extremism).
 
-- Analyze trends in how the top most used bigrams have changed each year.
-- Plot the top used bigrams for each year
+![](assets/fig11.png "Top most used bigrams in GNET insights")
+*Fig. 11: Top most used bigrams in GNET insights*
 
-![](assets/fig12.png)
+Visualizing changes in the most frequent bigrams year-over-year also reveals interesting changes in the research landscape. For example, in 2019, a frequently used bigram is "iron march", referring to a now-defunct Neo-Nazi web forum (and thus less topically relevant today). On the other hand, at the bottom of 2024 we see the bigram "gaming spaces", which reflects an emerging focus in the collective response to online extremism focusing on the exploitation of gaming platforms by extremist actors.
 
-*You zoom in and discuss a specific example or data point from your dataset to illustrate a point or support your findings/results (a specific movie, book, song, NBA player, etc.)*
+![](assets/fig12.png "Top bigrams in GNET insights, compared by year")
+*Fig. 12: Top bigrams in GNET insights, compared by year*
 
-### 5. Drill into a specific example, by comparing the most frequently occurring bigrams for some of the top tags to see how they differ from each other.
+### 5. Example of frequent bigrams across group or ideology tags
 
-- four top tags related to different groups or ideologies in the tags list:
-- Far-Right, Islamic State, Incel, and QAnon.
-- Compute bigrams for insights, removing stopwords as before
-- Based on experimentation, remove several bigrams that occur frequently across all tags
-- Get the top bigrams and their counts for each of the 4 groups' tags.
-- Plot the tag bigram counts, faceted by tag.
+To provide a further example, we can compare the most frequently used bigrams across specific tags. In particular, the top tags include several tags related to various extremist or terrorist groups or ideologies: Far-Right, Islamic State, Incel, and QAnon. Here we visualize the most frequently used bigrams within the set of insights tagged with each of these four movements, to give a comparison of how they are discussed. Of note, both Far-Right and QAnon tagged insights make frequent discussion of conspiracy theories, though the Far-Right tag focuses on white supremacism and neo-nazis, while QAnon focuses instead on the "deep state" and Donald Trump. In contrast, the Islamic State tag discusses various jihadist groups and IS supporters, while the Incel tag discusses issues of male supremacism, online forums, and mass violence.
 
-![](assets/fig13.png)
+![](assets/fig13.png "Top bigrams in GET insights across group or ideology tags")
+*Fig. 13: Top bigrams in GET insights across group or ideology tags*
 
-- Additionally we will show the titles of the most recent insights for these four tags
-- Use the gt library to visualize a table showing the insight titles from the different tags
+It is also illustrative to compare these frequent bigrams to example titles of insight articles associated with each tag. Here we can see the most recent four articles from each tag, which gives further color into the nature of these topics.
 
-![](assets/fig14.png)
+![](assets/fig14.png "Recent insight titles for top groups or ideology tags")
+*Fig. 14: Recent insight titles for top groups or ideology tags*
 
 ## Ethical concerns and limitations
 
