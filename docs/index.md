@@ -18,12 +18,12 @@ The GNET insights dataset includes the following fields:
 
 | field name     | data type         | description                                                                                                                                                                                                          |
 | -------------- | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `insight_url`  | text              | The original URL of the insight post on https://gnet-research.org. Serves as a canonical identifier for the post.                                                                                                    |
+| `insight_url`  | text              | The original URL of the insight post on [gnet-research.org](https://gnet-research.org). Serves as a canonical identifier for the post.                                                                               |
 | `title`        | text              | The title of the insight post.                                                                                                                                                                                       |
 | `author_names` | list-value (text) | A list of one or more names of the authors who contributed to writing the insight post.                                                                                                                              |
-| `author_urls`  | list-value (text) | A list of one or more URLs to an author page on https://gnet-research.org showing other insights written by the same author. Should correspond 1:1 with `author_names`.                                              |
+| `author_urls`  | list-value (text) | A list of one or more URLs to an author page on [gnet-research.org](https://gnet-research.org) showing other insights written by the same author. Should correspond 1:1 with `author_names`.                         |
 | `pub_date`     | date              | The publication date of the insight, in `YYYY-MM-DD` format.                                                                                                                                                         |
-| `categories`   | list-value (text) | A list of one or more post categories under which the insight is classified on https://gnet-research.org. With few exceptions, this is typically just the category "Insights".                                       |
+| `categories`   | list-value (text) | A list of one or more post categories under which the insight is classified on [gnet-research.org](https://gnet-research.org). With few exceptions, this is typically just the category "Insights".                  |
 | `insight_text` | text              | The full text of the insight post in plain text format, stripped of the original HTML formatting. Hyperlinks in the original post text have been removed, leaving only the text contained within the anchor element. |
 | `insight_urls` | list-value (text) | A list of zero or more URLs that were cited as hyperlinks in the body of the original post text.                                                                                                                     |
 | `tags`         | list-value (text) | A list of zero or more descriptive tags that were applied to the insight post.                                                                                                                                       |
@@ -36,7 +36,7 @@ Due to the formatting of the list-value fields, data cleaning may be necessary t
 
 In particular, for use in the R programming language, it is recommended to convert list-value fields into R vectors, by stripping the enclosing brackets and single-quotes and splitting the string into a vector. This is useful for converting the data into a [tidy data format](https://tidyr.tidyverse.org/articles/tidy-data.html) for use with [tidyverse](https://www.tidyverse.org) R packages, which stipulates: "3. Each value is a cell; each cell is a single value." Vectorized list-value fields can be converted into a tidy data format by using the [tidyr](https://tidyr.tidyverse.org) package's `unnest_longer` function.
 
-For Python, the list-value fields are already stored in a format compatible with deserialization using the Python pickle module.
+For Python, the list-value fields are already stored in a format compatible for deserialization using the Python pickle module.
 
 ### Collection
 
@@ -83,32 +83,29 @@ This dataset was collected by scraping the [GNET Research blog](https://gnet-res
 
 ### Introduction
 
-- Purpose of analysis
-- Brief summary of major analyses performed
-- Where to find the analysis script
+The following computational analysis is meant to give an overview of major patterns within the GNET insights dataset, and to provide examples of how text analysis might be used to understand topical trends in GNET insights. The analyses performed cover overall statistics about insight publishing and publication dates, authorship and author publication trends, insight tags and tag trends, as well as a demonstration of using text analysis for evaluating frequently used keywords and bigrams, and an illustrative example of comparing frequently occurring bigrams across specific tags.
 
-### 1. Analysis of total insight stats and publication dates 
+The R script used to conduct the computational analysis can be [found here](https://github.com/vortexegg/gnet-insights-dataset/blob/main/analyze_gnet.R).
 
-- Get the count of total insights in the dataset
-- There are 615 total insights
-- Get the range of publication dates of the - sights covered by this dataset.
-- Latest published insight: 2024-05-09
-- Earliest published insight: 2019-12-31
-- May 9, 2024 was the date when the dataset - s last update by scraping the GNET website
-- Max insights per year: 152
-- Median: 130
-- Mean: 102.5
-- Min: 7
-- The outlier years are 2024 and 2019.
-- 2024 is the present year which is still - going, so that makes ssense.
-- 2019 has only 7 insights, why is that?
-- We can see that all 7 insights published in - 19 were published on the same day, December - .
--  Get the number of insights published per - nth.
-- Max insights per month: 21
-- Median: 12
-- Mean: 11
-- Min: 3
-- We can best see the outliers and trends in monthly publishing with a visualization
+### 1. Analysis of overall insight stats and publication dates 
+
+The dataset contains 615 insight posts. These posts cover a range of publication dates from December 31st, 2019 to May 5th, 2024. This end date is the date when the dataset was last updated by scraping the GNET Research website.
+
+***Summary statistics: Insights published per year***
+
+| Max | Median | Mean  | Min |
+| --- | ------ | ----- | --- |
+| 152 | 130    | 102.5 | 7   |
+
+The discrepancy between the median and min number of insights per year is due to there only being seven insights published in 2019, all on December 31st (2024 also has fewer than average insights but this year is still ongoing).
+
+***Summary statistics: Insights published per month***
+
+| Max | Median | Mean | Min |
+| --- | ------ | ---- | --- |
+| 21  | 12     | 11   | 3   |
+
+Because of the variability of publishing rates on a month-by-month basis, trends in the number of insights published each month is best seen as a visualization.
 
 ![](assets/fig1.png)
 
