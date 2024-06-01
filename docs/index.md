@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The GNET Insights Dataset is a collection of insight blog posts published by the The Global Network on Extremism and Technology on the [GNET Research blog](https://gnet-research.org). The purpose of this dataset is to provide researchers with a source of data for conducting information studies such as textual  analysis on the publication practices and topical trends within the intersecting fields of technology and terrorism & violent extremism.
+The [GNET Insights Dataset](https://github.com/vortexegg/gnet-insights-dataset) is a collection of insight blog posts published by the The Global Network on Extremism and Technology on the [GNET Research blog](https://gnet-research.org). The purpose of this dataset is to provide researchers with a source of data for conducting information studies such as textual  analysis on the publication practices and topical trends within the intersecting fields of technology and terrorism & violent extremism.
 
 The GNET Insights dataset was collected by Scott Johnson by scraping insight posts from the [GNET Research blog](https://gnet-research.org). The original GNET insight articles are solicited, commissioned, edited, and published by The Global Network on Extremism and Technology (GNET), led by the [International Centre for the Study of Radicalisation](https://icsr.info) (ICSR) at the Department of War Studies at King’s College London and backed by the [Global Internet Forum to Counter Terrorism](https://gifct.org) (GIFCT). The contents of each insight post are the original work of the attributed authors.
 
@@ -12,12 +12,25 @@ The purpose of this project is to create a rich dataset of texts, authorship, an
 
 *You introduce the dataset that you either analyzed or created, and you include relevant details from your dataset biography, such that the reader can engage and evaluate your project thoroughly and thoughtfully*
 
-The data and related code for the GNET Insights data set can be found on GitHub at the [gnet-insights-dataset](https://github.com/vortexegg/gnet-insights-dataset) repository. The dataset is itself is compiled in a CSV file [gnet_insights.csv](https://github.com/vortexegg/gnet-insights-dataset/blob/main/gnet_insights.csv). The dataset can be accessed by either cloning the repository, or simply downloading the raw CSV file.
+The data and related code for the GNET Insights dataset can be found on the [gnet-insights-dataset](https://github.com/vortexegg/gnet-insights-dataset) GitHub repository. The dataset itself is compiled in a [CSV file](https://github.com/vortexegg/gnet-insights-dataset/blob/main/gnet_insights.csv). The dataset can be accessed by either cloning the repository, or simply downloading the raw CSV file.
 
 ### Data dictionary
 
-- List of data fields
-	- name, data type, meaning of contents, any important considerations (formatting, list-value fields)
+The GNET insights dataset includes the following fields:
+
+| field name     | data type         | description                                                                                                                                                                                                          |
+| -------------- | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `insight_url`  | text              | The original URL of the insight post on https://gnet-research.org. Serves as a canonical identifier for the post.                                                                                                    |
+| `title`        | text              | The title of the insight post.                                                                                                                                                                                       |
+| `author_names` | list-value (text) | A list of one or more names of the authors who contributed to writing the insight post.                                                                                                                              |
+| `author_urls`  | list-value (text) | A list of one or more URLs to an author page on https://gnet-research.org showing other insights written by the same author. Should correspond 1:1 with `author_names`.                                              |
+| `pub_date`     | date              | The publication date of the insight, in `YYYY-MM-DD` format.                                                                                                                                                         |
+| `categories`   | list-value (text) | A list of one or more post categories under which the insight is classified on https://gnet-research.org. With few exceptions, this is typically just the category "Insights".                                       |
+| `insight_text` | text              | The full text of the insight post in plain text format, stripped of the original HTML formatting. Hyperlinks in the original post text have been removed, leaving only the text contained within the anchor element. |
+| `insight_urls` | list-value (text) | A list of zero or more URLs that were cited as hyperlinks in the body of the original post text.                                                                                                                     |
+| `tags`         | list-value (text) | A list of zero or more descriptive tags that were applied to the insight post.                                                                                                                                       |
+
+All list-value fields are constructed using the following syntax: `"['value one', 'value two',...]"`
 
 ### Data cleaning
 
