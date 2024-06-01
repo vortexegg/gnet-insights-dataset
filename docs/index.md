@@ -47,39 +47,13 @@ This dataset was collected by scraping the [GNET Research blog](https://gnet-res
 
 ## Usage
 
-*discuss why the data might be useful and who it might be useful for*
-### Use cases
+The main use case envisioned for the GNET Insights Dataset is for various communities to conduct topic and publication trend analysis of public research at the intersection of technology and terrorism & violent extremism.
 
-- Topic and authorship trend analysis
-- Useful to GNET itself, publisher and editor and GIFCT, funder
-	- Assess trends in research publication on blog
-	- Make better editorial decisions
-	- Join with other datasites or website pageview analytics to gain deeper understanding
-- Useful to TVE researchers and T&S practitioners
-	- Keep abreast of trends and changes in trends in publication
-	- Adjust plans for what to write about or what research to request
-- General readership including policy-makers, civil society
-	- Benefit from summary of trends, keeping abreast
-	- Visualize overall picture and get oriented within topical landscape
+This dataset may be of primary use to GNET itself, as the publisher and editor of the GNET Research blog, and for GNET's funders, GIFCT. These organizations can use the dataset to assess and adjust ongoing trends in publication of insights, make changes in editorial decisions and solicitation of posts, and join this dataset together with other data such as web page view analytics to gain a better understanding of readership interests. A second important set of users are extremism studies researchers (who make up the primary authorship of the blog) as well as practitioners such as trust & safety professionals who are working on applying these insights to inform their day-to-day work. This dataset could help them keep abreast of important and emerging trends, and to both adjust their plans for what topics to write about or for what under-covered research topics should be requested through GIFCT. Finally, the general readership of GNET, which includes tech company and government policy-makers as well as civil society, would also benefit from seeing summary trends and having the ability to visualize and orient themselves within the overall topical landscape of technology and terrorism & violent extremism.
 
-*The GNET Insights Dataset and any topical trend analysis of this data can provide potential value for a number of audiences. First and foremost the Global Network on Extremism and Technology, as the publisher and editor of the GNET Research blog, and the Global Internet Forum to Counter Terrorism, as the primary funding body of GNET, would both benefit from being better able to assess the impact of the research insights and make more data-driven decisions about solicitation of various authors and topics for future research (including making sure that diverse and relevant topics are discussed and a diverse authorship is represented). This data set can also be joined with a number of other datasets such as website pageview analytics and other data about authors like their global and institutional locations, which would give a more holistic understanding of the value and impact of the blog.*
-
-*The second set of beneficiaries of this dataset are terrorism studies researchers themselves. By seeing trends in what topics are being written about, this can help researchers better understand if there are either any topics they are overlooking in their own research, or alternatively if there is a saturation of other researchers already publishing about a particular topic (e.g. the impact of generative AI on extremist propaganda) the researchers can focus on a different area.*
-
-*Finally, the general readership of the blog, including tech company and government policy decision-makers, would also benefit in seeing a summary of topical and authorship trends just as much as they benefit from the actual research insights themselves. One of the primary goals of GNET is to keep these decision-makers abreast of such tends, so being able to visualize trends at the topical and entity level would provide that much more insight.*
-
-### Background knowledge
-
-- Need general knowledge of TVE topics
-- Critical terrorism studies lens
-- Terrorism as essentially contested concept
-- Researcher safety and appropriate reflection due to challenging subject matter
-
-*While GNET insights are written partially for consumption by the general public, in order to make responsible use of the GNET Insights Dataset it is helpful to have a grounding in the study of terrorism and violent extremism and related topics. Furthermore, collections of data about terrorism, and data about the study of terrorism, should be approached from a critical terrorism studies lens that appreciates that definitions of terrorism and who counts as as a terrorist or extremist group or ideology are 'essentially contested' and embroiled in political questions about the construction of power and the deligitimation of violence. Finally, users of this dataset should be aware that the study of terrorist and extremist subjects can be psychologically and morally challenging to researchers. Analyzing these subjects necessarily involves exposure to hateful narratives and imagery and descriptions or depictions of violence that are associated with racially and ideologically motivated extremist subjects. It is critical to have grounding in appropriate handling of these topics in order to mitigate personal harm and protect researcher safety.*
+While GNET insights are written in-part for a general audience, and this dataset can be utilized for gaining a general topical orientation, any users of this dataset will be well-served by possessing general knowledge and grounding in the study of terrorism and violent extremism. In particular, it is recommended to approach this data from a critical terrorism studies lens that understands the critical questions of power and ethics behind the essentially contested concepts and definitions of "terrorism" and "extremism", which are necessarily embroiled in political questions about the construction of power and the deligitimation of violence. Before engaging with this data it is crucial to understand that analyzing topics related to these subjects involves exposure to hateful narratives and depictions of racially and ethnically motivated violence. Researchers should take appropriate psychological safety precautions before and during the course of engaging with this challenging subject matter.
 
 ## Findings/Results/Summary
-
-*You include 3 data viz/plots, and you sufficiently introduce and describe them in the blog post. You point out any salient details or overall patterns that the reader/viewer should pay attention to and understand*
 
 ### Introduction
 
