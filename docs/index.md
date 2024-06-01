@@ -2,19 +2,23 @@
 
 ## Introduction
 
-The GNET Insights Dataset is a collection of post text and related metadata from 'insights' published on the The Global Network on Extremism and Technology's [GNET Research blog](https://gnet-research.org). The purpose of this dataset is to provide researchers with a source of data for conducting information studies such as textual and bibliometric data analysis about publication practices and topical trends within the intersecting fields of technology studies and terrorism & violent extremism.
+The GNET Insights Dataset is a collection of insight blog posts published by the The Global Network on Extremism and Technology on the [GNET Research blog](https://gnet-research.org). The purpose of this dataset is to provide researchers with a source of data for conducting information studies such as textual  analysis on the publication practices and topical trends within the intersecting fields of technology and terrorism & violent extremism.
 
-The GNET Insights dataset was collected by Scott Johnson based on scraping insight posts from the [GNET Research blog](https://gnet-research.org). The original GNET insight articles are solicited, commissioned, edited, and published by The Global Network on Extremism and Technology (GNET), led by the [International Centre for the Study of Radicalisation](https://icsr.info) (ICSR) at the Department of War Studies at King’s College London and backed by the [Global Internet Forum to Counter Terrorism](https://gifct.org) (GIFCT). The contents of each insight post are the original work of the attributed authors.
+The GNET Insights dataset was collected by Scott Johnson by scraping insight posts from the [GNET Research blog](https://gnet-research.org). The original GNET insight articles are solicited, commissioned, edited, and published by The Global Network on Extremism and Technology (GNET), led by the [International Centre for the Study of Radicalisation](https://icsr.info) (ICSR) at the Department of War Studies at King’s College London and backed by the [Global Internet Forum to Counter Terrorism](https://gifct.org) (GIFCT). The contents of each insight post are the original work of the attributed authors.
 
-The purpose of **Curating the GNET Insights Dataset** is to create a rich dataset of texts, authorship, and publication information that can be used to better understand trends in the research published by GNET. The field of terrorism studies, and particularly the intersection of the study of terrorism and technology platforms, is in need of ongoing library and information studies to assess trends within this research domain. GNET is a rapid research blog that produces topical research on the technology and terrorism landscape from a diverse range of global authors, and is thus ripe for text mining and other data analysis to gain this understanding.
+The purpose of this project is to create a rich dataset of texts, authorship, and publication information that can be used to better understand trends in the research published by GNET. The field of terrorism studies, and particularly the intersection of the study of terrorism and technology platforms, is in need of ongoing library and information studies to assess trends within this research domain. GNET is a rapid research blog that produces topical research on the technology and terrorism landscape from a diverse range of global authors, and is thus ripe for text mining and other data analysis to gain this understanding.
 
 ## Dataset
 
 *You introduce the dataset that you either analyzed or created, and you include relevant details from your dataset biography, such that the reader can engage and evaluate your project thoroughly and thoughtfully*
 
-**Overall description of dataset**
-
 The data and related code for the GNET Insights data set can be found on GitHub at the [gnet-insights-dataset](https://github.com/vortexegg/gnet-insights-dataset) repository. The dataset is itself is compiled in a CSV file [gnet_insights.csv](https://github.com/vortexegg/gnet-insights-dataset/blob/main/gnet_insights.csv). The dataset can be accessed by either cloning the repository, or simply downloading the raw CSV file.
+
+### Data dictionary
+
+TBD
+
+### Collection
 
 The dataset was collected by scraping the [GNET Research blog](https://gnet-research.org) using a Python script written with the [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/) web scraping library. You can find the website scraping script at [gnet_insight_scraper.ipynb](https://github.com/vortexegg/gnet-insights-dataset/blob/main/gnet_insight_scraper.ipynb). The significant choices made in scraping this dataset included:
 
@@ -23,9 +27,21 @@ The dataset was collected by scraping the [GNET Research blog](https://gnet-rese
 
 As mentioned above, the original GNET insights were solicited and published by GNET, and the categories and tags associated with each insight article were applied by GNET at time of original publication.
 
-Basic data documentation, data dictionary
+## Usage
 
-Collection
+*discuss why the data might be useful and who it might be useful for*
+
+### Background knowledge
+
+While GNET insights are written partially for consumption by the general public, in order to make responsible use of the GNET Insights Dataset it is helpful to have a grounding in the study of terrorism and violent extremism and related topics. Furthermore, collections of data about terrorism, and data about the study of terrorism, should be approached from a critical terrorism studies lens that appreciates that definitions of terrorism and who counts as as a terrorist or extremist group or ideology are 'essentially contested' and embroiled in political questions about the construction of power and the deligitimation of violence. Finally, users of this dataset should be aware that the study of terrorist and extremist subjects can be psychologically and morally challenging to researchers. Analyzing these subjects necessarily involves exposure to hateful narratives and imagery and descriptions or depictions of violence that are associated with racially and ideologically motivated extremist subjects. It is critical to have grounding in appropriate handling of these topics in order to mitigate personal harm and protect researcher safety.
+
+### Use cases
+
+The GNET Insights Dataset and any topical trend analysis of this data can provide potential value for a number of audiences. First and foremost the Global Network on Extremism and Technology, as the publisher and editor of the GNET Research blog, and the Global Internet Forum to Counter Terrorism, as the primary funding body of GNET, would both benefit from being better able to assess the impact of the research insights and make more data-driven decisions about solicitation of various authors and topics for future research (including making sure that diverse and relevant topics are discussed and a diverse authorship is represented). This data set can also be joined with a number of other datasets such as website pageview analytics and other data about authors like their global and institutional locations, which would give a more holistic understanding of the value and impact of the blog.
+
+The second set of beneficiaries of this dataset are terrorism studies researchers themselves. By seeing trends in what topics are being written about, this can help researchers better understand if there are either any topics they are overlooking in their own research, or alternatively if there is a saturation of other researchers already publishing about a particular topic (e.g. the impact of generative AI on extremist propaganda) the researchers can focus on a different area.
+
+Finally, the general readership of the blog, including tech company and government policy decision-makers, would also benefit in seeing a summary of topical and authorship trends just as much as they benefit from the actual research insights themselves. One of the primary goals of GNET is to keep these decision-makers abreast of such tends, so being able to visualize trends at the topical and entity level would provide that much more insight.
 
 ## Ethical concerns and limitations
 
@@ -39,14 +55,13 @@ Based on the above points about critical terrorism studies and the epistemic lim
 
 ## Findings/Results/Summary
 
-*present a summary of the data's basic characteristics
-
 *You include 3 data viz/plots, and you sufficiently introduce and describe them in the blog post. You point out any salient details or overall patterns that the reader/viewer should pay attention to and understand*
 
-Data cleaning
+### Data cleaning
+
 - Convert nested list-value fields into R vectors for later unnesting. Currently stored as pickled python lists exported to CSV, need to `unnest_longer` to analyze multi-value nested list columns
 
-1. Analysis of total insight stats and publication dates 
+### 1. Analysis of total insight stats and publication dates 
 
 Get the count of total insights in the dataset
 There are 615 total insights
@@ -71,7 +86,7 @@ There are 615 total insights
 
 ![](assets/fig1.png)
 
-2. Analysis of authors and author publication counts
+### 2. Analysis of authors and author publication counts
 
 - Get the count of distinct authors who have - blished GNET insights
 - There are 453 distinct authors in the dataset
@@ -111,7 +126,7 @@ There are 615 total insights
 - have consistently continued publishing into 2024 (these also happen to be the two
 - top contributors of all time).
 
-3. Analysis of tags
+### 3. Analysis of tags
 
 - Get the count of distinct tags
 - There are 87 distinct tags across all insights
@@ -143,7 +158,7 @@ There are 615 total insights
 
 ![](assets/fig7.png)
 
-4. Analysis of the URLs cited inside the text of each insight
+### 4. Analysis of the URLs cited inside the text of each insight
 
 - There are 9403 distinct URLs across cited across all insights
 - How frequently are individual urls used?
@@ -164,7 +179,7 @@ There are 615 total insights
 
 ![](assets/fig9.png)
 
-5. Text analysis to demonstrate what might be done with the textual content of this dataset.
+### 5. Text analysis to demonstrate what might be done with the textual content of this dataset.
 
 - Plot the top most used words
 
@@ -183,7 +198,7 @@ There are 615 total insights
 
 *You zoom in and discuss a specific example or data point from your dataset to illustrate a point or support your findings/results (a specific movie, book, song, NBA player, etc.)*
 
-6. Drill into a specific example, by comparing the most frequently occurring bigrams for some of the top tags to see how they differ from each other.
+### 6. Drill into a specific example, by comparing the most frequently occurring bigrams for some of the top tags to see how they differ from each other.
 
 - four top tags related to different groups or ideologies in the tags list:
 - Far-Right, Islamic State, Incel, and QAnon.
@@ -198,18 +213,6 @@ There are 615 total insights
 - Use the gt library to visualize a table showing the insight titles from the different tags
 
 ![](assets/fig14.png)
-
-*discuss why the data might be useful and who it might be useful for*
-
-Background knowledge
-
-While GNET insights are written partially for consumption by the general public, in order to make responsible use of the GNET Insights Dataset it is helpful to have a grounding in the study of terrorism and violent extremism and related topics. Furthermore, collections of data about terrorism, and data about the study of terrorism, should be approached from a critical terrorism studies lens that appreciates that definitions of terrorism and who counts as as a terrorist or extremist group or ideology are 'essentially contested' and embroiled in political questions about the construction of power and the deligitimation of violence. Finally, users of this dataset should be aware that the study of terrorist and extremist subjects can be psychologically and morally challenging to researchers. Analyzing these subjects necessarily involves exposure to hateful narratives and imagery and descriptions or depictions of violence that are associated with racially and ideologically motivated extremist subjects. It is critical to have grounding in appropriate handling of these topics in order to mitigate personal harm and protect researcher safety.
-
-The GNET Insights Dataset and any topical trend analysis of this data can provide potential value for a number of audiences. First and foremost the Global Network on Extremism and Technology, as the publisher and editor of the GNET Research blog, and the Global Internet Forum to Counter Terrorism, as the primary funding body of GNET, would both benefit from being better able to assess the impact of the research insights and make more data-driven decisions about solicitation of various authors and topics for future research (including making sure that diverse and relevant topics are discussed and a diverse authorship is represented). This data set can also be joined with a number of other datasets such as website pageview analytics and other data about authors like their global and institutional locations, which would give a more holistic understanding of the value and impact of the blog.
-
-The second set of beneficiaries of this dataset are terrorism studies researchers themselves. By seeing trends in what topics are being written about, this can help researchers better understand if there are either any topics they are overlooking in their own research, or alternatively if there is a saturation of other researchers already publishing about a particular topic (e.g. the impact of generative AI on extremist propaganda) the researchers can focus on a different area.
-
-Finally, the general readership of the blog, including tech company and government policy decision-makers, would also benefit in seeing a summary of topical and authorship trends just as much as they benefit from the actual research insights themselves. One of the primary goals of GNET is to keep these decision-makers abreast of such tends, so being able to visualize trends at the topical and entity level would provide that much more insight.
 
 ## Future Work
 
