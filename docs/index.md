@@ -87,7 +87,7 @@ The following computational analysis is meant to give an overview of major patte
 
 The R script used to conduct the computational analysis can be [found here](https://github.com/vortexegg/gnet-insights-dataset/blob/main/analyze_gnet.R).
 
-### 1. Analysis of overall insight stats and publication dates 
+### 1. Overall insight stats and publication dates 
 
 The dataset contains 615 insight posts. These posts cover a range of publication dates from December 31st, 2019 to May 5th, 2024. This end date is the date when the dataset was last updated by scraping the GNET Research website.
 
@@ -107,48 +107,41 @@ The discrepancy between the median and min number of insights per year is due to
 
 Trends in the number of insights published each month is best represented through a visualization. As can be seen, there is a wide variability in the rate of publication from month-to-month, with extend periods of high and low rates of publication.
 
-![](assets/fig1.png)
 *Fig. 1: Insights published each month*
+![](assets/fig1.png "Insights published each month")
 
-### 2. Analysis of authors and author publication counts
+### 2. Authors and author publication trends
 
-- Get the count of distinct authors who have - blished GNET insights
-- There are 453 distinct authors in the dataset
-- Some insights are co-written by more than - e author. What are the statistics for that?
-- Max authors per insight: 6
-- Median: 1
-- Mean (rounded): 1
-- Min: 1
-- Some authors have also contributed to - iting more than one insight.
-- Max insights per author: 21
-- Median: 1
-- Mean: 2
-- Min: 1
-- There is quite a difference between the max - sights per author and the median,
-- which makes it sound like there may be a - ng tail of contributors with ony one insight.
-- What does this look like?
-- Plot the number of insights per author to see the distribution
+The dataset contains insights that have been published by 453 distinct authors.
 
-![](assets/fig2.png)
+***Summary statistics: Contributions by multiple authors per insight***
 
-- As expected there is a long tail of authors - th one insight, and a few more with 2-5 - sights
-- before we see a small number of authors with - or more insights, up to 21 for a single - thor.
--  Get the top most contributing authors (6 or - re insights)
-- There are 17 authors who have written 6 or - re insights
-- Plot these authors along with how many insights they've written
+| Max | Median | Mean | Min |
+| --- | ------ | ---- | --- |
+| 6   | 1      | 1    | 1   |
 
+While some insights have multiple authors who all contributed to writing the insight, on average insights are typically written by a single author.
 
-![](assets/fig3.png)
+***Summary statistics: Multiple insights per author***
 
-- For the top 10 authors let's see how they've - ntributed various insights over the timespan -  the dataset
-- Plot the top insight authors and their insight counts per month over the publication timeline.
+| Max | Median | Mean | Min |
+| --- | ------ | ---- | --- |
+| 21  | 1      | 2    | 1   |
 
-![](assets/fig4.png)
+Conversely, several authors have written or contributed to more than one insight. We see that the max number of insights for a single author is twenty-one, while the average is between 1-2 insights. The discrepancy between these stats implies that there is a long tail of single-insight contributors. Visualizing this distribution, we can see that there the majority of authors have contributed only a single insight, several more authors have contributed between two to five insights, and a small number of authors have contributed six or more insights.
 
-- Of interest, we can see that most of the top contributing authors have dropped off from
-- writing new insights sometime in 2023 (or in one case, in 2022), while two top authors
-- have consistently continued publishing into 2024 (these also happen to be the two
-- top contributors of all time).
+*Fig. 2: Distribution of insights per author*
+![](assets/fig2.png "Distribution of insights per author")
+
+There are seventeen authors who have contributed to six or more insights. Here we can see the top contributing authors and the number of insights per author.
+
+*Fig. 3: Insights by top contributing authors*
+![](assets/fig3.png "Insights by top contributing authors")
+
+For the top ten authors, we can visualize trends in how they have contributed insights over the timespan of GNET's publications. Of interest, we can see that the top contributing authors have all had runs of consistent publications that each drop off after a certain point. Notably most top authors have dropped off from writing sometime in 2023, while two top authors have continued consistently publishing in to 2024 (these also happen to be the two top contributors of all time).
+
+*Fig. 4: Insights by top contributing authors over time*
+![](assets/fig4.png "Insights by top contributing authors over time")
 
 ### 3. Analysis of tags
 
