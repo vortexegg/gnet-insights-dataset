@@ -105,9 +105,10 @@ The discrepancy between the median and min number of insights per year is due to
 | --- | ------ | ---- | --- |
 | 21  | 12     | 11   | 3   |
 
-Because of the variability of publishing rates on a month-by-month basis, trends in the number of insights published each month is best seen as a visualization.
+Trends in the number of insights published each month is best represented through a visualization. As can be seen, there is a wide variability in the rate of publication from month-to-month, with extend periods of high and low rates of publication.
 
 ![](assets/fig1.png)
+*Fig. 1: Insights published each month*
 
 ### 2. Analysis of authors and author publication counts
 
