@@ -4,6 +4,7 @@
 # install.packages("scales")
 # install.packages("tidytext")
 # install.packages("cowplot")
+# install.packages("gt")
 
 library(tidyverse)
 library(ggplot2)
@@ -11,6 +12,7 @@ library(RColorBrewer)
 library(scales)
 library(tidytext)
 library(cowplot)
+library(gt)
 
 gnet_df <- read.csv("~/Code/572_data_science/gnet-insights-dataset/gnet_insights.csv")
 
@@ -113,11 +115,11 @@ insight_month_stats <- insight_months %>%
 ggplot(insight_months, aes(x=month, y=n)) +
   geom_point(color="black") +
   geom_line(color="tomato2") +
-  theme(axis.text.x = element_text(angle = 45, vjust = 0.8, hjust = 1)) +
-  labs(title = "# insights published each month",
-       y = "# insights",
-       x = "date") +
-  scale_x_date(date_labels = "%Y-%m",date_breaks = "2 month")
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1)) +
+  labs(title = "Number of Insights published each month",
+       y = "# Insights",
+       x = "Date") +
+  scale_x_date(date_labels = "%Y-%m",date_breaks = "3 month")
 
 # 2. Analysis of authors and author publication counts
 
@@ -167,10 +169,10 @@ author_counts_stats <- insights_per_author %>%
 
 # Plot the number of insights per author to see the distribution
 ggplot(insights_per_author, aes(x=reorder(author_names, n, decreasing=TRUE), y=n)) +
-  geom_col(fill="tomato2") +
-  labs(title = "Distribution of # of insights per author",
-       x= "authors",
-       y= "# insights per author") +
+  geom_col(color="tomato2", fill="tomato2") +
+  labs(title = "Distribution of insights per author",
+       x= "Authors",
+       y= "Insights per author") +
   theme(axis.text.x=element_blank(),
         axis.ticks.x=element_blank(),
   ) +
@@ -190,9 +192,9 @@ count_top_authors
 # Plot these authors along with how many insights they've written
 ggplot(top_authors, aes(x=n, y=reorder(author_names,n))) +
   geom_col(fill = "darkolivegreen4") +
-  labs(title = "# insights by top contributing authors",
-       x = "# insights per author",
-       y = "top authors")
+  labs(title = "Insights by top contributing authors",
+       x = "Insights per author",
+       y = "Top authors")
 
 # For the top 10 authors let's see how they've contributed various insights over the timespan of the dataset
 
@@ -207,10 +209,11 @@ top_author_insights_by_month <- long_authors_urls_df %>%
 ggplot(top_author_insights_by_month, aes(x=month, y=n, fill=author_names)) +
   geom_area(position = "stack") +
   scale_fill_brewer(palette = "Spectral", name = "Tag") +
-  labs(title = "# of Insights per month for top GNET authors",
-       y = "total insights by all top authors each month") +
+  labs(title = "Insights by top contributing authors over time",
+       y = "Total insights by all top authors each month",
+       x = "Month") +
   theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1)) +
-  scale_x_date(date_labels = "%Y-%m",date_breaks = "2 month")
+  scale_x_date(date_labels = "%Y-%m",date_breaks = "3 month")
 # Of interest, we can see that most of the top contributing authors have dropped off from
 # writing new insights sometime in 2023 (or in one case, in 2022), while two top authors
 # have consistently continued publishing into 2024 (these also happen to be the two
@@ -248,10 +251,10 @@ tag_counts_summary <- tag_counts %>%
 # the max number of insights and those with the median number of insights. Let's graph this to see
 # what the distribution looks like
 ggplot(tag_counts, aes(x=reorder(tags, n, decreasing=TRUE), y=n)) +
-  geom_col(fill="tomato2") +
-  labs(title = "Distribution of # of insights per tag",
-       x= "tags",
-       y= "# insights per tag") +
+  geom_col(fill="tomato2", color="tomato2") +
+  labs(title = "Distribution of insights per tag",
+       x= "Tags",
+       y= "Insights per tag") +
   theme(axis.text.x=element_blank(),
         axis.ticks.x=element_blank()) +
   scale_y_continuous(breaks = breaks_pretty(n = 20))
@@ -269,10 +272,10 @@ count_top_tags
 
 # Plot the top tags most used tags and how many insights they are applied to
 ggplot(top_tags, aes(x=n, y=reorder(tags, n))) +
-  geom_col(fill = "tomato2") +
+  geom_col(fill = "darkolivegreen4") +
   labs(title = "Top tags applied to GNET Insights",
-       x = "# insights with tag",
-       y = "tag")
+       x = "Insights with tag",
+       y = "Tag")
 
 # Now let's visualize how the top tags are used on a monthly basis.
 # As before, filter the tags from the top set of tags by insights per tag,
@@ -287,7 +290,8 @@ ggplot(top_tags_per_month, aes(x=month, y=n, fill=reorder(tags,n, decreasing=TRU
   geom_area(position = 'stack') +
   scale_fill_brewer(palette = "Spectral", name = "Tag") +
   labs(title = "Top tags applied to GNET insights by month and year",
-       y = "Total # of insights for all top tags each month")
+       y = "Total insights for all top tags each month",
+       x = "Month")
 # There are some interesting patterns or regimes shown by this chart.
 # From 2019 through 2021 There was a larger focus on 'Social media' and 'Islamic State'
 # From 2021 through 2024, there was an increasing focus on 'Far-Right' and, eventually, 'Gender' tags
@@ -325,10 +329,10 @@ url_counts_summary <- dist_urls %>%
 
 # Plotting the distribution of the citation counts of all URLs across the dataset
 ggplot(dist_urls, aes(x=reorder(insight_urls, n, decreasing=TRUE), y=n)) +
-  geom_col(fill="tomato2") +
+  geom_col(fill="tomato2", color="tomato2") +
   labs(title = "Distribution of citations of URLs in insight text",
        x= "URLs",
-       y= "# citations per URL") +
+       y= "Citations per URL") +
   theme(axis.text.x=element_blank(),
         axis.ticks.x=element_blank(),
   ) +
@@ -352,8 +356,8 @@ top_domains <- domains %>%
 ggplot(top_domains, aes(x = total, y = reorder(domain, total))) + 
   geom_col(fill = "darkolivegreen4") +
   labs(title = "Top most cited domains in GNET insights",
-       x = "# of citations in insights",
-       y = "domain name")
+       x = "Number of citations per domain name",
+       y = "Domain name")
 
 # Finally, we will zoom in and do some example text analysis to demonstrate
 # what might be done with the textual component of this dataset.
@@ -385,8 +389,8 @@ top_words <- tidy_gnet %>%
 ggplot(top_words, aes(x=n, y=word)) +
   geom_col(fill = "darkolivegreen4") +
   labs(title="Top most used words in GNET insights",
-       x="frequency",
-       y="word")
+       x="Frequency",
+       y="Word")
 
 # Next we evaluate the commonly used bigrams in the insight texts.
 # This is done by unnesting the tokens into bigrams, and then we use a trick to
@@ -409,8 +413,8 @@ top_bigrams <- tidy_gnet_bigrams %>%
 ggplot(top_bigrams, aes(x=n, y=word)) +
   geom_col(fill = "darkolivegreen4") +
   labs(title="Top most used bigrams in GNET insights",
-       x="frequency",
-       y="bigram")
+       x="Frequency",
+       y="Top bigrams")
 
 # Analyze trends in how the top most used bigrams have changed each year.
 # Count the uses of each bigram by year, and then arrange and group them by year
@@ -424,35 +428,142 @@ top_bigrams_by_year <- tidy_gnet_bigrams %>%
 # Plot the top used bigrams for each year using facet_wrapping to separate out
 # each year in its own subplot. We use "free" scales mode to only display the
 # bigrams that are relevant for each year.
-ggplot(top_bigrams_by_year, aes(x = n, y = reorder(word, n), fill = year)) +
+ggplot(top_bigrams_by_year, aes(x = n, y = reorder_within(word, n, year), fill = year)) +
   geom_col(show.legend = FALSE) +
   facet_wrap(~ year, ncol = 2, scales = "free") +
-  labs(title="Top bigrams used in GNET insights, compared by year",
-       x="frequency of bigrams",
-       y="bigram for each year")
+  scale_y_reordered() +
+  labs(title="Top bigrams in GNET insights, compared by year",
+       x="Frequency of bigrams",
+       y="Bigrams for each year")
 
-## Last, we analyze the bigrams that represent what the insight texts are about
-# by computing the term-frequency inverse document-frequency of the bigrams
-bigram_tf_idf <- tidy_gnet_bigrams %>%
-  count(year, insight_url, word) %>%
-  bind_tf_idf(word, insight_url, n) %>%
-  arrange(-tf_idf)
+# To drill into a specific example, we will compare the most frequently occurring bigrams 
+# for some of the top tags to see how they differ from each other. This will be done
+# by breaking out each tag as a one-hot encoded column (1 or 0 for whether the tag applies),
+# calculating the bigrams as before, and then counting the top bigrams for
+# four top tags related to different groups or ideologies in the tags list:
+# Far-Right, Islamic State, Incel, and QAnon.
 
-# Get the top tf-idf bigrams into a format that can be displayed for each year
-# by first filtering out bigrams with term frequency of 1,
-# next grouping by year, slicing out the top 10 tf-idf bigrams, and ungrouping
-# and then turning each bigram into a unique factor.
-bigram_tf_top <- bigram_tf_idf %>%
-  filter(!near(tf, 1)) %>%
-  group_by(year) %>%
-  slice_max(tf_idf, n = 10, with_ties = FALSE) %>%
-  ungroup() %>%
-  mutate(word = factor(word, levels = rev(unique(word)))) 
+# We start by unnesting the tags adding a "seen" column than we can use as the value
+# for pivoting the data frame back to a wider format, filling in empty values with `0`.
+# This results in a one-hot encoding of the tags as separate columns.
+top_tagged_insights <- gnet_df %>% 
+  filter(tags != "") %>% 
+  mutate(tag_copy = tags) %>% 
+  unnest_longer(tag_copy) %>%
+  mutate(seen = 1) %>% 
+  pivot_wider(names_from=tag_copy, values_from=seen, values_fill = 0)
 
-# Finally we plot each year as a separate subplot with a free scale, as before.
-ggplot(bigram_tf_top, aes(x = tf_idf, y = word, fill = year)) +
+# Compute bigrams for insights, removing stopwords as before
+top_tag_bigrams <- top_tagged_insights %>%
+  unnest_tokens(word, insight_text, token = "ngrams", n = 2) %>% 
+  separate(word, c("word1", "word2"), sep = " ") %>% 
+  filter(!word1 %in% stopwords$word) %>%
+  filter(!word2 %in% stopwords$word) %>% 
+  unite(word, word1, word2, sep = " ")
+
+# Based on experimentation, remove several bigrams that occur frequently across all tags
+# but which don't provide meaningful descriptive value to the characterization of each tag.
+top_tag_bigrams <- top_tag_bigrams %>% 
+  filter(word != "social media", word != "media platforms")
+  
+# Get the top bigrams and their counts for each of the 4 groups' tags.
+# For each group we add back in a `tag` column that can be used for plot faceting.
+far_right_bigrams <- top_tag_bigrams %>%
+  filter(`Far-Right` == 1) %>% 
+  count(word, sort=TRUE) %>% 
+  slice_max(n, n = 10) %>%
+  mutate(word = reorder(word, n)) %>% 
+  mutate(tag = "Far-Right")
+
+islamic_state_bigrams <- top_tag_bigrams %>%
+  filter(`Islamic State` == 1) %>% 
+  count(word, sort=TRUE) %>% 
+  slice_max(n, n = 10) %>%
+  mutate(word = reorder(word, n)) %>% 
+  mutate(tag = "Islamic State")
+
+qanon_bigrams <- top_tag_bigrams %>%
+  filter(QAnon == 1) %>% 
+  count(word, sort=TRUE) %>% 
+  slice_max(n, n = 10) %>%
+  mutate(word = reorder(word, n)) %>% 
+  mutate(tag = "QAnon")
+
+incel_bigrams <- top_tag_bigrams %>%
+  filter(Incel == 1) %>% 
+  count(word, sort=TRUE) %>% 
+  slice_max(n, n = 10) %>%
+  mutate(word = reorder(word, n)) %>% 
+  mutate(tag = "Incel")
+
+# Concatenate the data frames together for plotting.
+top_tag_bigram_counts <- rbind(far_right_bigrams, islamic_state_bigrams)
+top_tag_bigram_counts <- rbind(top_tag_bigram_counts, qanon_bigrams)
+top_tag_bigram_counts <- rbind(top_tag_bigram_counts, incel_bigrams)
+
+# Plot the tag bigram counts, faceted by tag.
+ggplot(top_tag_bigram_counts, aes(x = n, y = reorder_within(word, n, tag), fill = tag)) +
   geom_col(show.legend = FALSE) +
-  facet_wrap(~ year, ncol = 2, scales = "free") +
-  labs(title="Top TF-IDF bigrams used in GNET insights, compared by year",
-       x="frequency of TF-IDF bigrams",
-       y="TF-IDF bigram for each year")
+  facet_wrap(~ tag, ncol = 2, scales = "free") +
+  scale_y_reordered() +
+  labs(title="Top bigrams used in GNET insights",
+       subtitle="compared within top tags related to groups or ideologies",
+       x="Frequency of bigrams",
+       y="Bigrams for each tag")
+
+# Additionally we will show the titles of the most recent insights for these four tags
+# Get the four most recent insights for each of the top tags in a format we can visualize
+far_right_titles <- top_tagged_insights %>% 
+  filter(`Far-Right` == 1) %>% 
+  arrange(desc(as.Date(pub_date))) %>% 
+  select(title, pub_date) %>% 
+  mutate(tag = "Far-Right") %>% 
+  head(n = 4)
+
+islamic_state_titles <- top_tagged_insights %>% 
+  filter(`Islamic State` == 1) %>% 
+  arrange(desc(as.Date(pub_date))) %>% 
+  select(title, pub_date) %>% 
+  mutate(tag = "Islamic State") %>% 
+  head(n = 4)
+
+incel_titles <- top_tagged_insights %>% 
+  filter(Incel == 1) %>% 
+  arrange(desc(as.Date(pub_date))) %>% 
+  select(title, pub_date) %>% 
+  mutate(tag = "Incel") %>% 
+  head(n = 4)
+
+qanon_titles <- top_tagged_insights %>% 
+  filter(QAnon == 1) %>% 
+  arrange(desc(as.Date(pub_date))) %>% 
+  select(title, pub_date) %>% 
+  mutate(tag = "QAnon") %>% 
+  head(n = 4)
+
+# Concatenate these four data frames together
+top_tag_titles <- rbind(far_right_titles, islamic_state_titles)
+top_tag_titles <- rbind(top_tag_titles, incel_titles)
+top_tag_titles <- rbind(top_tag_titles, qanon_titles)
+
+# Use the gt library to visualize a table showing the insight titles from the different tags
+top_tag_titles %>% 
+  gt() %>%
+  tab_header(title = "Recent insight titles for top tags of groups or ideologies") %>%
+  cols_label(title = "Title", pub_date = "Publication Date", tag = "Tag") %>%
+  tab_style(
+    style = list(cell_fill(color = "lightsalmon")),
+    locations = cells_body(columns = everything(), rows = tag == "Far-Right")
+  ) %>% 
+  tab_style(
+    style = list(cell_fill(color = "lemonchiffon")),
+    locations = cells_body(columns = everything(), rows = tag == "Islamic State")
+  ) %>% 
+  tab_style(
+    style = list(cell_fill(color = "lightcyan")),
+    locations = cells_body(columns = everything(), rows = tag == "Incel")
+  ) %>% 
+  tab_style(
+    style = list(cell_fill(color = "lavenderblush")),
+    locations = cells_body(columns = everything(), rows = tag == "QAnon")
+  )
