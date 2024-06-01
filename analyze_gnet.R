@@ -1,3 +1,6 @@
+# See the GNET Insights Dataset project repostiory on GitHub for more information:
+# https://github.com/vortexegg/gnet-insights-dataset
+
 # install.packages("tidyverse")
 # install.packages("ggplot2")
 # install.packages("RColorBrewer")
