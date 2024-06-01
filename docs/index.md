@@ -1,6 +1,9 @@
 # Curating the GNET Insights Dataset
 
-## Introduction
+**Author**: Scott Johnson
+**Published**: June 1, 2024
+
+## I. Introduction
 
 The [GNET Insights Dataset](https://github.com/vortexegg/gnet-insights-dataset) is a collection of insight blog posts published by the The Global Network on Extremism and Technology on the [GNET Research blog](https://gnet-research.org). The purpose of this dataset is to provide researchers with a source of data for conducting information studies such as textual  analysis on the publication practices and topical trends within the intersecting fields of technology and terrorism & violent extremism.
 
@@ -8,7 +11,7 @@ The GNET Insights dataset was collected by [Scott Johnson](https://github.com/vo
 
 The purpose of this project is to create a rich dataset of texts, authorship, and publication information that can be used to better understand trends in the research published by GNET. The field of terrorism studies, and particularly the intersection of the study of terrorism and technology platforms, is in need of ongoing library and information studies to assess trends within this research domain. GNET is a rapid research blog that produces topical research on the technology and terrorism landscape from a diverse range of global authors, and is thus ripe for text mining and other data analysis to gain this understanding.
 
-## Dataset
+## II. About the dataset
 
 The data and related code for the GNET Insights dataset can be found on the [gnet-insights-dataset](https://github.com/vortexegg/gnet-insights-dataset) GitHub repository. The dataset itself is compiled in a [CSV file](https://github.com/vortexegg/gnet-insights-dataset/blob/main/gnet_insights.csv). The dataset can be accessed by either cloning the repository, or simply downloading the raw CSV file.
 
@@ -38,30 +41,28 @@ In particular, for use in the R programming language, it is recommended to conve
 
 For Python, the list-value fields are already stored in a format compatible for deserialization using the Python pickle module.
 
-### Collection
+### Data collection
 
 This dataset was collected by scraping the [GNET Research blog](https://gnet-research.org) using a Python script written with the [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/) web scraping library. The scraping script is located at [gnet_insight_scraper.ipynb](https://github.com/vortexegg/gnet-insights-dataset/blob/main/gnet_insight_scraper.ipynb). The significant choices made in scraping this dataset include:
 
 1. Only including insight posts (GNET publishes other kinds of resources including full-length reports, research digests, etc.).
 2. Extracting specific metadata about each insight post from the scrapped web page, which form the metadata elements listed in the data dictionary (see above).
 
-## Usage
+## III. Expected usage
 
 The main use case envisioned for the GNET Insights Dataset is for various communities to conduct topic and publication trend analysis of public research at the intersection of technology and terrorism & violent extremism.
 
 This dataset may be of primary use to GNET itself, as the publisher and editor of the GNET Research blog, and for GNET's funders, GIFCT. These organizations can use the dataset to assess and adjust ongoing trends in publication of insights, make changes in editorial decisions and solicitation of posts, and join this dataset together with other data such as web page view analytics to gain a better understanding of readership interests. A second important set of users are extremism studies researchers (who make up the primary authorship of the blog) as well as practitioners such as trust & safety professionals who are working on applying these insights to inform their day-to-day work. This dataset could help them keep abreast of important and emerging trends, and to both adjust their plans for what topics to write about or for what under-covered research topics should be requested through GIFCT. Finally, the general readership of GNET, which includes tech company and government policy-makers as well as civil society, would also benefit from seeing summary trends and having the ability to visualize and orient themselves within the overall topical landscape of technology and terrorism & violent extremism.
 
-While GNET insights are written in-part for a general audience, and this dataset can be utilized for gaining a general topical orientation, any users of this dataset will be well-served by possessing general knowledge and grounding in the study of terrorism and violent extremism. In particular, it is recommended to approach this data from a critical terrorism studies lens that understands the critical questions of power and ethics behind the essentially contested concepts and definitions of "terrorism" and "extremism", which are necessarily embroiled in political questions about the construction of power and the deligitimation of violence. Before engaging with this data it is crucial to understand that analyzing topics related to these subjects involves exposure to hateful narratives and depictions of racially and ethnically motivated violence. Researchers should take appropriate psychological safety precautions before and during the course of engaging with this challenging subject matter.
+While GNET insights are written in-part for a general audience, and this dataset can be utilized for gaining a general topical orientation, any users of this dataset will be well-served by possessing general knowledge and grounding in the study of terrorism and violent extremism. In particular, it is recommended to approach this data from a critical terrorism studies lens that understands the critical questions of power and ethics behind the essentially contested concepts and definitions of "terrorism" and "extremism", which are necessarily embroiled in political questions about the construction of power and the deligitimation of violence. Before engaging with this data it is crucial to understand that analyzing topics related to these subjects involves exposure to hateful narratives and depictions of racially and ethnically motivated violence. Users should take appropriate [researcher safety precautions](https://voxpol.eu/wp-content/uploads/2024/01/Online-Extremism-and-Terrorism-Researchers-Security-Safety-Resilience.pdf) before and during the course of engaging with this challenging subject matter.
 
-## Findings/Results/Summary
-
-### Introduction
+## IV. Dataset summary analysis and examples
 
 The following computational analysis is meant to give an overview of major patterns within the GNET insights dataset, and to provide examples of how text analysis might be used to understand topical trends in GNET insights. The analyses performed cover overall statistics about insight publishing and publication dates, authorship and author publication trends, insight tags and tag trends, as well as a demonstration of using text analysis for evaluating frequently used keywords and bigrams, and an illustrative example of comparing frequently occurring bigrams across specific tags.
 
 The R script used to conduct the computational analysis can be [found here](https://github.com/vortexegg/gnet-insights-dataset/blob/main/analyze_gnet.R).
 
-### 1. Overall insight stats and publication dates 
+### Overall insight stats and publication dates 
 
 The dataset contains a total of 615 insight posts. These posts cover a range of publication dates from December 31st, 2019 to May 5th, 2024. This end date is the date when the dataset was last updated by scraping the GNET Research website.
 
@@ -84,7 +85,7 @@ Trends in the number of insights published each month is best represented throug
 ![](assets/fig1.png "Insights published each month")
 *Fig. 1: Insights published each month*
 
-### 2. Authors and author publication trends
+### Authors and author publication trends
 
 The dataset contains insights that have been published by 453 different authors.
 
@@ -117,7 +118,7 @@ For the top ten authors, we can visualize trends in how they have contributed in
 ![](assets/fig4.png "Insights by top contributing authors over time")
 *Fig. 4: Insights by top contributing authors over time*
 
-### 3. Insight tags and tag trends
+### Insight tags and tag trends
 
 The dataset contains insights that have been applied with a mix of 87 different tags.
 
@@ -142,7 +143,7 @@ For the top ten tags, we can visualize trends in how these tags have been applie
 ![](assets/fig7.png "Top tags applied to GNET insights by month and year")
 *Fig. 7: Top tags applied to GNET insights by month and year*
 
-### 4. Demonstration of text analysis for topical trends
+### Demonstration of text analysis for topical trends
 
 Apart from summary statistics, this section demonstrates the value of one of the key uses of the GNET Insights Dataset—the application of text analysis techniques to insight post texts to understand trends in topics, mentioned keywords, etc. This demonstration only scratches the surface of what is possible, by visualizing the most frequently used words and bigrams in the text corpus, as well as trends in how the most frequently used bigrams have changed over time.
 
@@ -156,12 +157,12 @@ While this is interesting, visualizing the top most used bigrams is much more re
 ![](assets/fig11.png "Top most used bigrams in GNET insights")
 *Fig. 11: Top most used bigrams in GNET insights*
 
-Visualizing changes in the most frequent bigrams year-over-year also reveals interesting changes in the research landscape. For example, in 2019, a frequently used bigram is "iron march", referring to a now-defunct Neo-Nazi web forum (and thus less topically relevant today). On the other hand, at the bottom of 2024 we see the bigram "gaming spaces", which reflects an emerging focus in the collective response to online extremism focusing on the exploitation of gaming platforms by extremist actors.
+Visualizing changes in the most frequent bigrams year-over-year also reveals interesting changes in the research landscape. For example, in 2019, a frequently used bigram is "iron march", referring to a now-defunct neo-nazi web forum (and thus less topically relevant today). On the other hand, at the bottom of 2024 we see the bigram "gaming spaces", which reflects an emerging focus in the collective response to online extremism focusing on the exploitation of gaming platforms by extremist actors.
 
 ![](assets/fig12.png "Top bigrams in GNET insights, compared by year")
 *Fig. 12: Top bigrams in GNET insights, compared by year*
 
-### 5. Example of frequent bigrams across group or ideology tags
+### Example comparing topics across tags and within particular insights
 
 To provide a further example, we can compare the most frequently used bigrams across specific tags. In particular, the top tags include several tags related to various extremist or terrorist groups or ideologies: Far-Right, Islamic State, Incel, and QAnon. Here we visualize the most frequently used bigrams within the set of insights tagged with each of these four movements, to give a comparison of how they are discussed. Of note, both Far-Right and QAnon tagged insights make frequent discussion of conspiracy theories, though the Far-Right tag focuses on white supremacism and neo-nazis, while QAnon focuses instead on the "deep state" and Donald Trump. In contrast, the Islamic State tag discusses various jihadist groups and IS supporters, while the Incel tag discusses issues of male supremacism, online forums, and mass violence.
 
@@ -173,36 +174,18 @@ It is also illustrative to compare these frequent bigrams to example titles of i
 ![](assets/fig14.png "Recent insight titles for top groups or ideology tags")
 *Fig. 14: Recent insight titles for top groups or ideology tags*
 
-## Ethical concerns and limitations
+Zooming further into one particular article, [Preparing for the Boogaloo: How Far-Right Communities Rallied on Discord for the Unite the Right Rally](https://gnet-research.org/2024/03/25/preparing-for-the-boogaloo-how-far-right-communities-rallied-on-discord-for-the-unite-the-right-rally/) from March 25, 2024, we see this article is tagged with the common "Far-Right" and "Social Media" tags, as well as the tag "Boogaloo" (a far-right term). This article discusses how far-right, alt-right, and white nationalist/white supremacist groups used the social media and gaming adjacent platform, Discord, to plan the _Unite the Right_ rally in Charlottesville in 2017, as well as to network with other neo-nazi groups and disseminate far-right conspiracy theory narratives. Comparing this article to the top bigrams for the "Far-Right" tag (fig. 13) we see that all of these concepts are represented in the frequently used bigrams for this tag. Similarly, we see many of these concepts match with the top bigrams used in insights from 2024 (fig. 12). This demonstrates how even a simplified textual analysis of insight posts can model the overall topics discussed on the GNET Research blog.
 
-*You discuss possible ethical considerations or concerns with your project, as well as limitations that the reader should keep in mind*
+## V. Ethical concerns and limitations
 
-- Appropriate and ethical representation and accuracy
-- Need to establish data licensing and reuse
-- Epistemic limitations
+Before proceeding with use of this dataset, potential users should be informed of several ethical concerns and limitations. As mentioned before, terrorism and extremism are essentially contested concepts, and so users of this dataset must take appropriate care to treat the subjects of the insight reports with a critical and ethical lens. These insights discuss real groups and people, both extremist actors as well as victim communities. It is necessary for any data analysis conducted on this dataset, and communication thereof, treats those subjects with appropriate care for privacy, sensitivity, and respect for fundamental human rights.
 
-*Given that terrorism is a contested category, care will need to be taken to ensure that the research subjects studied within the GNET research insights, and analyzed as topics in the dataset, are presented in an appropriate ethical lens. Similarly, a broader use of this dataset will require engagement with the GNET organization in order to establish appropriate data licensing and reuse considerations*.
+Another concern relates to the epistemic limitations of the data. A frequent question in this field is, "What can this tell us about the prevalence of the problem of terrorism on various digital platforms?" This dataset can tell us about what has been researched about this problem, but quantification of references to specific topics or entities within the insights data is not necessarily indicative of the prevalence of particular issues in the real world. It should also be noted that this dataset is a collection of data about high-level short-form public research reports. This is not an open-source terrorism database, a collection of secondary data about terrorist activity, or even a collection of peer-reviewed academic articles. Users should not be confused about what types of claims they can and cannot make from this data.
 
-*A key question frequently asked about data and studies of the intersection of technology and terrorism is, "What can this tell us about the prevalence of the problem of terrorism on various digital platforms?" It is critical to note that there is epistemic limitation of the GNET Insights Dataset in that it cannot be used as evidence of the scope of the actual landscape of digital extremism and use of technology by terrorists. Rather, this dataset is evidence of the research practices and subject topics that are being reported on by extremism studies researchers, who have chosen to write about specific topics specifically at the nexus of technology and terrorism. Data analyses regarding, for example, the counts of references to specific extremist groups mentioned in the dataset are not indicative of the prevalence or degree of harms of those specific groups online or offline. Likewise, counts of references to specific technologies or tech platforms are not indicative of the scope of the use of those platforms by terrorists, etc. Rather, such analyses would only demonstrate that these groups or tech platforms happen to be frequently written about by GNET researchers (and which frequency may or may not correlate to the degree of real world harms).*
+A final limitation relates to data permissions and reuse. While the GNET website and insight posts are publicly available, this dataset has not been commissioned or licensed under an agreed-upon data-reuse policy with GNET or GIFCT. GNET does not stipulate any data reuse terms on its website, and similarly permission to use the content of these articles presumably is held in part by GNET and the original authors. Data licensing and reuse terms should be sought and clarified depending on the intended use and reuse of the data contained in this dataset.
 
-*Based on the above points about critical terrorism studies and the epistemic limits of a dataset that is secondary research of academic studies, users of this dataset should apply care in making claims about the underlying terrorist and extremist subjects represented by the GNET insights which are contained in the dataset. It is noted that the GNET Insights Dataset is not an open-source terrorism database nor is it a collection of secondary data about terrorist and extremist subjects, but is rather a set of high-level research reports or summaries produced by extremism researchers in a non-peer-reviewed academic blog. Furthermore, users of this dataset should take care in how they communicate information about the terrorist and violent extremist groups and individuals represented in the GNET insight blog posts, in particular related to privacy and human rights concerns regarding human subjects.*
+## VI. Future Work
 
-## Future Work
+There is a variety of future work that the curator of this dataset might engage in to make the data and associated analyses even more useful. First, the frequent bigrams text analysis conducted in this project only scratches the surface of what is possible with computational linguistics. Other potential text analyses that could add to the value of the dataset include topic modeling and named entity recognition. These techniques could be used, for example, to analyze references to specific geographic areas, extremist groups and ideologies, particular technologies and tech platforms, and trends in these entities and topics over time. Another under-researched aspect of this dataset are the URLs cited within the text of the insight posts. This might include analysis of the frequently cited domains, or even text analysis of the linked pages themselves. Expanding beyond this dataset, there is an opportunity to combine this data with other datasets that would enrich the types of analyses that can be conducted. As mentioned above, GNET themselves may consider combining this dataset with website page analytics. Other sources of data may include demographic and geographic data about the insight authors (e.g. to see the global geographic coverage of authorship), or to match topics or named entities against one of the many open-source terrorism databases of terrorist activity, such as START's [Global Terrorism Database](https://www.start.umd.edu/gtd/).
 
-*You address a possible direction for future work. If you had more time and resources, where would you go next with this project?*
-
-**What additional types of data or analyses**
-
-- Different types of text analysis; named entity recognition, topic analysis
-- Analysis of URLs in text, and the pages they point to
-- Analysis of references to specific geographic areas, groups, ideologies, technologies, etc based on named entity recognition
-- Combine dataset with demographic and geographic data about authors, and various other entities and topics
-
-**Other future work**
-
-- Data permissions and republication
-- Automated process for keeping dataset up to date
-
-*One key challenge that may need to be addressed in order for this dataset to be used more broadly relates to data permissions and re-publication. Despite the GNET website and blog posts being publicly available, I have not obtained explicit permission to scrape and download the full blog data, analyze, or publish on it. GNET does not have any statements about data reuse or licensing on their website that would clarify what is implicitly permitted. Similarly, I have not obtained permission or consent from the individual authors. It is unclear to me whether this type of permission and consent is necessary to obtain as part of conducting bibliometric research on published works. Assuming the permission challenge can be resolved, second related challenge involves identifying a suitable way to host the data in an accessible location online (e.g. in a GitHub repository?) and establishing a sustainable process for extracting new blog posts to add to the dataset as they are published.*
-
-*I think both of these challenge are within the realm of possibility to be solved through my existing personal and professional relationships within the terrorism studies community and with staff at GNET itself. The first problem could be addressed through discussing with GNET and GIFCT about establishing an agreement for this dataset to be curated and hosted going forward, and if necessary establishing appropriate data licensing and reuse documentation. The second problem of creating a sustainable process for collecting data could potentially be addressed through a technical data sharing project with GNET that involves them sending requisite metadata fields and article text to the dataset owner (or potentially adding the data themselves if the dataset is hosted in an open-source repository).*
+Besides from these analysis opportunities, there are also several outstanding administrative aspects of this project that should be completed to make it a more functional and useful dataset. First, as mentioned above, the dataset curator should seek to establish a partnership with GNET to clarify and articulate data licensing or data reuse policies, so that downstream users of the dataset are provided with sufficient clarity on what and how they can use this data for derived works. Second, scraping and compiling the dataset is currently a manual process (which involves running the scraper script and performing some manual formatting to produce the official dataset CSV file). This process could easily be automated to occur on a regular basis so that the dataset will be complete with any recently published insights.
