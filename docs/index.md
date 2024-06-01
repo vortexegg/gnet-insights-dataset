@@ -45,6 +45,21 @@ Based on the above points about critical terrorism studies and the epistemic lim
 
 - Data cleaning of list values, currently stored as pickled python lists exported to CSV, need to `unnest_longer` to analyze multi-value nested list columns
 
+![](assets/fig1.png)
+![](assets/fig2.png)
+![](assets/fig3.png)
+![](assets/fig4.png)
+![](assets/fig5.png)
+![](assets/fig6.png)
+![](assets/fig7.png)
+![](assets/fig8.png)
+![](assets/fig9.png)
+![](assets/fig10.png)
+![](assets/fig11.png)
+![](assets/fig12.png)
+![](assets/fig13.png)
+![](assets/fig14.png)
+
 - Insights published per month
 
 ![](assets/insights_per_month.png)
