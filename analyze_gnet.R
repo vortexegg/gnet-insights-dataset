@@ -219,7 +219,7 @@ ggplot(top_author_insights_by_month, aes(x=month, y=n, fill=author_names)) +
 # have consistently continued publishing into 2024 (these also happen to be the two
 # top contributors of all time).
 
-# Analysis of tags
+# 3. Analysis of tags
 
 # Unnest the list-value tags field for further analysis
 long_tags <- gnet_df %>% 
@@ -297,7 +297,7 @@ ggplot(top_tags_per_month, aes(x=month, y=n, fill=reorder(tags,n, decreasing=TRU
 # From 2021 through 2024, there was an increasing focus on 'Far-Right' and, eventually, 'Gender' tags
 # Then from 2024, consistently used tags related to Telegram, QAnon fell off, the tag for Gender fell off, and the Far-Right tag decline while Islamic State came back into dominance.
 
-# Analysis of the URLs cited inside the text of each insight
+# 4. Analysis of the URLs cited inside the text of each insight
 
 # Unnesting the urls for further analysis
 urls_long <- gnet_df %>% 
@@ -359,8 +359,7 @@ ggplot(top_domains, aes(x = total, y = reorder(domain, total))) +
        x = "Number of citations per domain name",
        y = "Domain name")
 
-# Finally, we will zoom in and do some example text analysis to demonstrate
-# what might be done with the textual component of this dataset.
+# 5. Text analysis to demonstrate what might be done with the textual content of this dataset.
 
 # Unnest the tokens of the insight text into a tidy text format 
 tidy_gnet <- gnet_df %>% 
@@ -436,9 +435,9 @@ ggplot(top_bigrams_by_year, aes(x = n, y = reorder_within(word, n, year), fill =
        x="Frequency of bigrams",
        y="Bigrams for each year")
 
-# To drill into a specific example, we will compare the most frequently occurring bigrams 
-# for some of the top tags to see how they differ from each other. This will be done
-# by breaking out each tag as a one-hot encoded column (1 or 0 for whether the tag applies),
+# 6. Drill into a specific example, by comparing the most frequently occurring bigrams 
+# for some of the top tags to see how they differ from each other.
+# This will be done by breaking out each tag as a one-hot encoded column (1 or 0 for whether the tag applies),
 # calculating the bigrams as before, and then counting the top bigrams for
 # four top tags related to different groups or ideologies in the tags list:
 # Far-Right, Islamic State, Incel, and QAnon.
@@ -506,8 +505,7 @@ ggplot(top_tag_bigram_counts, aes(x = n, y = reorder_within(word, n, tag), fill 
   geom_col(show.legend = FALSE) +
   facet_wrap(~ tag, ncol = 2, scales = "free") +
   scale_y_reordered() +
-  labs(title="Top bigrams used in GNET insights",
-       subtitle="compared within top tags related to groups or ideologies",
+  labs(title="Top bigrams in GNET insights compared across top group or ideology tags",
        x="Frequency of bigrams",
        y="Bigrams for each tag")
 

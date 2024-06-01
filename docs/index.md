@@ -43,70 +43,161 @@ Based on the above points about critical terrorism studies and the epistemic lim
 
 *You include 3 data viz/plots, and you sufficiently introduce and describe them in the blog post. You point out any salient details or overall patterns that the reader/viewer should pay attention to and understand*
 
-- Data cleaning of list values, currently stored as pickled python lists exported to CSV, need to `unnest_longer` to analyze multi-value nested list columns
+Data cleaning
+- Convert nested list-value fields into R vectors for later unnesting. Currently stored as pickled python lists exported to CSV, need to `unnest_longer` to analyze multi-value nested list columns
+
+1. Analysis of total insight stats and publication dates 
+
+Get the count of total insights in the dataset
+There are 615 total insights
+- Get the range of publication dates of the - sights covered by this dataset.
+- Latest published insight: 2024-05-09
+- Earliest published insight: 2019-12-31
+- May 9, 2024 was the date when the dataset - s last update by scraping the GNET website
+- Max insights per year: 152
+- Median: 130
+- Mean: 102.5
+- Min: 7
+- The outlier years are 2024 and 2019.
+- 2024 is the present year which is still - going, so that makes ssense.
+- 2019 has only 7 insights, why is that?
+- We can see that all 7 insights published in - 19 were published on the same day, December - .
+-  Get the number of insights published per - nth.
+- Max insights per month: 21
+- Median: 12
+- Mean: 11
+- Min: 3
+- We can best see the outliers and trends in monthly publishing with a visualization
 
 ![](assets/fig1.png)
+
+2. Analysis of authors and author publication counts
+
+- Get the count of distinct authors who have - blished GNET insights
+- There are 453 distinct authors in the dataset
+- Some insights are co-written by more than - e author. What are the statistics for that?
+- Max authors per insight: 6
+- Median: 1
+- Mean (rounded): 1
+- Min: 1
+- Some authors have also contributed to - iting more than one insight.
+- Max insights per author: 21
+- Median: 1
+- Mean: 2
+- Min: 1
+- There is quite a difference between the max - sights per author and the median,
+- which makes it sound like there may be a - ng tail of contributors with ony one insight.
+- What does this look like?
+- Plot the number of insights per author to see the distribution
+
 ![](assets/fig2.png)
+
+- As expected there is a long tail of authors - th one insight, and a few more with 2-5 - sights
+- before we see a small number of authors with - or more insights, up to 21 for a single - thor.
+-  Get the top most contributing authors (6 or - re insights)
+- There are 17 authors who have written 6 or - re insights
+- Plot these authors along with how many insights they've written
+
+
 ![](assets/fig3.png)
+
+- For the top 10 authors let's see how they've - ntributed various insights over the timespan -  the dataset
+- Plot the top insight authors and their insight counts per month over the publication timeline.
+
 ![](assets/fig4.png)
+
+- Of interest, we can see that most of the top contributing authors have dropped off from
+- writing new insights sometime in 2023 (or in one case, in 2022), while two top authors
+- have consistently continued publishing into 2024 (these also happen to be the two
+- top contributors of all time).
+
+3. Analysis of tags
+
+- Get the count of distinct tags
+- There are 87 distinct tags across all insights
+- How frequently are individual tags applied to insights?
+- Max # of insights associated with a single tag: 197
+- Median: 10
+- Mean: 18
+- Min: 2
+- Like with the authors, there is also a large difference between the tag with
+- the max number of insights and those with the median number of insights. Let's graph this to see
+- what the distribution looks like
+
 ![](assets/fig5.png)
+
+- We can see that most tags have ~20 or fewer insights associated with them, while
+- a small number of tags have up to hundreds of associated insights
+- Investigate the top most used tags (> 20 insights)
+- There are 22 tags that have been applied to 21 or more insights
+- Plot the top tags most used tags and how many insights they are applied to
+
 ![](assets/fig6.png)
+
+- Now let's visualize how the top tags are used on a monthly basis.
+- Plot the top tags per month as a stacked area chart to show the relative changes in usage over time
+- There are some interesting patterns or regimes shown by this chart.
+- From 2019 through 2021 There was a larger focus on 'Social media' and 'Islamic State'
+- From 2021 through 2024, there was an increasing focus on 'Far-Right' and, eventually, 'Gender' tags
+- Then from 2024, consistently used tags related to Telegram, QAnon fell off, the tag for Gender fell off, and the Far-Right tag decline while Islamic State came back into dominance.
+
 ![](assets/fig7.png)
+
+4. Analysis of the URLs cited inside the text of each insight
+
+- There are 9403 distinct URLs across cited across all insights
+- How frequently are individual urls used?
+- Analyze the distribution of how frequently URLs are cited by grouping by URLs.
+- Max cited URL count: 23
+- Median: 1
+- Mean: 1
+- Min: 1
+- Plotting the distribution of the citation counts of all URLs across the dataset
+
 ![](assets/fig8.png)
+
+- We can see that the vast majority the 9000+ URLs are cited only a single time. On the other end
+- two URLs are cited over twenty times, a link to a report by RUSE and Brookings: 'Terrorist Definitions and Designations Lists', 
+- and a link to Monash University's Global Peace and Security Centre
+- It's also interesting to look at what domains have been cited from the most frequently cited URLs.
+- Visualize the top most cited domains and counts
+
 ![](assets/fig9.png)
+
+5. Text analysis to demonstrate what might be done with the textual content of this dataset.
+
+- Plot the top most used words
+
 ![](assets/fig10.png)
+
+- Next we evaluate the commonly used bigrams in the insight texts.
+- Get the top most used bigrams and their usage counts
+- Plot the top most used bigrams and their counts
+
 ![](assets/fig11.png)
+
+- Analyze trends in how the top most used bigrams have changed each year.
+- Plot the top used bigrams for each year
+
 ![](assets/fig12.png)
-![](assets/fig13.png)
-![](assets/fig14.png)
 
-- Insights published per month
-
-![](assets/insights_per_month.png)
-
-- Authors
-	- Count authors
-	- Distribution of insights per author
-	- Top contributing authors
-	- Top authors insights over the years
-	- Distinct insight authors per year
-
-![](assets/top_authors_per_year.png)
-![](assets/top_authors.png)
-![](assets/dis_insights_per_author.png)
-
-- Tags
-	- Count tags
-	- Distribution of insights per tag
-	- Count of insights for the top tags
-	- Count of top tags over the years
-
-![](assets/insights_per_tag.png)
-![](assets/top_tags_per_year.png)
-![](assets/top_tags.png)
-
-- URLs cited in insights
-	- Min, Max, Average number of URLs in insights
-	- Distribution of insights per URL
-	- Top domains cited in insights
-
-![](assets/top_domains.png)
-![](assets/urls_per_insight.png)
-
-- Text analysis
-	- top words
-	- top bigrams and trend in top bigrams per year
-	- top tf_idf of bigrams and trend in tfidf per year
-
-![](assets/top_words.png)
-![](assets/bigram_trends_by_year.png)
-![](assets/tf_idf_by_year.png)
-![](assets/top_bigrams.png)
-****
 *You zoom in and discuss a specific example or data point from your dataset to illustrate a point or support your findings/results (a specific movie, book, song, NBA player, etc.)*
 
-**Focus on one specific insight?**
-**???**
+6. Drill into a specific example, by comparing the most frequently occurring bigrams for some of the top tags to see how they differ from each other.
+
+- four top tags related to different groups or ideologies in the tags list:
+- Far-Right, Islamic State, Incel, and QAnon.
+- Compute bigrams for insights, removing stopwords as before
+- Based on experimentation, remove several bigrams that occur frequently across all tags
+- Get the top bigrams and their counts for each of the 4 groups' tags.
+- Plot the tag bigram counts, faceted by tag.
+
+![](assets/fig13.png)
+
+- Additionally we will show the titles of the most recent insights for these four tags
+- Use the gt library to visualize a table showing the insight titles from the different tags
+
+![](assets/fig14.png)
 
 *discuss why the data might be useful and who it might be useful for*
 
