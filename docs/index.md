@@ -83,8 +83,8 @@ The discrepancy between the median and minimum number of insights per year is du
 
 Trends in the number of insights published each month are best represented through a visualization. As can be seen, there is a wide variability in the rate of publication from month to month, with extended periods of high and low rates of publication.
 
-![](assets/fig1.png "Insights published each month")
 *Fig. 1: Insights published each month*
+![](assets/fig1.png "Insights published each month")
 
 ### Authors and author publication trends
 
@@ -106,18 +106,18 @@ While some insights have multiple authors who all contributed to writing the ins
 
 Conversely, several authors have written or contributed to more than one insight. We see that the maximum number of insights for a single author is twenty-one, while the average is between 1-2 insights. The discrepancy between these stats implies that there is a long tail of single-insight contributors. Visualizing this distribution, we can see that the majority of authors have contributed only a single insight, several more authors have contributed between two to five insights, and a small number of authors have contributed six or more insights.
 
-![](assets/fig2.png "Distribution of insights per author")
 *Fig. 2: Distribution of insights per author*
+![](assets/fig2.png "Distribution of insights per author")
 
 There are seventeen authors who have contributed to six or more insights. Here we can see the top contributing authors and the number of insights per author:
 
-![](assets/fig3.png "Insights by top contributing authors")
 *Fig. 3: Insights by top contributing authors*
+![](assets/fig3.png "Insights by top contributing authors")
 
 For the top ten authors, we can visualize trends in how they have contributed insights over GNET's publication timespan. Of interest, we can see that the top contributing authors have all had runs of consistent publications that each drop off after a certain point. Notably, most top authors have dropped off from writing sometime in 2023, while two top authors have continued consistently publishing into 2024 (these also happen to be the two top contributors of all time).
 
-![](assets/fig4.png "Insights by top contributing authors over time")
 *Fig. 4: Insights by top contributing authors over time*
+![](assets/fig4.png "Insights by top contributing authors over time")
 
 ### Insight tags and tag trends
 
@@ -131,18 +131,18 @@ The dataset contains insights that have been applied with a mix of 87 different 
 
 As with the authors, there is a wide discrepancy between the maximum and median number of tags, implying a long tail of insights with only a small number of tags. Visualizing the distribution of insights per tag, we can see that most tags have been applied to approximately twenty or fewer insights. A small number of tags have been applied to anywhere between twenty-one to several hundred insights.
 
-![](assets/fig5.png "Distribution of insights per tag")
 *Fig. 5: Distribution of insights per tag*
+![](assets/fig5.png "Distribution of insights per tag")
 
 There are twenty-two tags that have been applied to twenty-one or more insights. Here we can see the top tags and the number of insights they have been applied to. The most frequently applied tags are "Far-Right", "Social Media", "Islamic State", "Propaganda", and "Radicalisation". This combination of tags lends a key insight into the nature of the problem of digital extremism as it is carried out on social media platforms (or at least, what GNET insight authors choose to publish about it).
 
-![](assets/fig6.png "Top tags applied to GNET insights")
 *Fig. 6: Top tags applied to GNET insights*
+![](assets/fig6.png "Top tags applied to GNET insights")
 
 For the top ten tags, we can visualize trends in how these tags have been applied to insights over GNET's publication timespan. There are a few interesting patterns revealed by this plot. From 2019 to 2021 there was a larger relative focus on insights tagged with "Social Media" and "Islamic State". This changes substantially in early 2021, leading to an increasing focus on "Far-Right" insights and, eventually, insights about "Gender"-related issues of extremism. Then in early 2024, there is another shift. Tags that were consistently used from 2021 entirely fall off, including "Gender", "Telegram", and "QAnon", while the "Far-Right" tag drastically shrinks while "Islamic State" comes back into prominence.
 
-![](assets/fig7.png "Top tags applied to GNET insights by month and year")
 *Fig. 7: Top tags applied to GNET insights by month and year*
+![](assets/fig7.png "Top tags applied to GNET insights by month and year")
 
 ### Demonstration of text analysis for topical trends
 
@@ -150,30 +150,30 @@ Apart from summary statistics, this section demonstrates the value of one of the
 
 Here we see a plot of the top most used words in the GNET insight texts and their frequency of use:
 
-![](assets/fig10.png "Top most used words in GNET insights")
 *Fig. 10: Top most used words in GNET insights*
+![](assets/fig10.png "Top most used words in GNET insights")
 
 While this is interesting, visualizing the top most used bigrams is much more revealing of the general topics discussed throughout the GNET insight texts. The two most used bigrams, "far right" and "social media", followed by "islamic state" and "right wing", are indeed reflective of the overall GNET Research blog and also align with the most commonly used tags. But we also see other important concepts that contextualize topics at the intersection of technology and terrorism, such as "covid 19" (a major driver of extremist conspiracy narratives), or "tech companies" and "content moderation" (a primary site for responding to the harms of online extremism).
 
-![](assets/fig11.png "Top most used bigrams in GNET insights")
 *Fig. 11: Top most used bigrams in GNET insights*
+![](assets/fig11.png "Top most used bigrams in GNET insights")
 
 Visualizing changes in the most frequent bigrams year-over-year also reveals interesting changes in the research landscape. For example, in 2019, a frequently used bigram is "iron march", referring to a now-defunct neo-nazi web forum (and thus less topically relevant today). On the other hand, at the bottom of 2024, we see the bigram "gaming spaces", which reflects an emerging focus in the collective response to online extremism focusing on the exploitation of gaming platforms by extremist actors.
 
-![](assets/fig12.png "Top bigrams in GNET insights, compared by year")
 *Fig. 12: Top bigrams in GNET insights, compared by year*
+![](assets/fig12.png "Top bigrams in GNET insights, compared by year")
 
 ### Example comparing topics across tags and within particular insights
 
 To provide a further example, we can compare the most frequently used bigrams across specific tags. In particular, the top tags include several tags related to various extremist or terrorist groups or ideologies: Far-Right, Islamic State, Incel, and QAnon. Here we visualize the most frequently used bigrams within the set of insights tagged with each of these four movements, to give a comparison of how they are discussed. Of note, both Far-Right and QAnon tagged insights make frequent discussion of conspiracy theories, though the Far-Right tag focuses on white supremacism and neo-nazis, while QAnon focuses instead on the "deep state" and Donald Trump. In contrast, the Islamic State tag discusses various jihadist groups and IS supporters, while the Incel tag discusses issues of male supremacism, online forums, and mass violence.
 
-![](assets/fig13.png "Top bigrams in GNET insights across group or ideology tags")
 *Fig. 13: Top bigrams in GNET insights across group or ideology tags*
+![](assets/fig13.png "Top bigrams in GNET insights across group or ideology tags")
 
 It is also illustrative to compare these frequent bigrams to example titles of insight articles associated with each tag. Here we can see the most recent four articles from each tag, which gives further color into the nature of these topics.
 
-![](assets/fig14.png "Recent insight titles for top groups or ideology tags")
 *Fig. 14: Recent insight titles for top groups or ideology tags*
+![](assets/fig14.png "Recent insight titles for top groups or ideology tags")
 
 Zooming further into one particular article, [Preparing for the Boogaloo: How Far-Right Communities Rallied on Discord for the Unite the Right Rally](https://gnet-research.org/2024/03/25/preparing-for-the-boogaloo-how-far-right-communities-rallied-on-discord-for-the-unite-the-right-rally/) from March 25, 2024, we see this article is tagged with the common "Far-Right" and "Social Media" tags, as well as the tag "Boogaloo" (a far-right term). This article discusses how far-right, alt-right, and white nationalist/white supremacist groups used the social media and gaming adjacent platform, Discord, to plan the _Unite the Right_ rally in Charlottesville in 2017, as well as to network with other neo-nazi groups and disseminate far-right conspiracy theory narratives. Comparing this article to the top bigrams for the "Far-Right" tag (fig. 13) we see that all of these concepts are represented in the frequently used bigrams for this tag. Similarly, we see many of these concepts match with the top bigrams used in insights from 2024 (fig. 12). This demonstrates how even a simplified textual analysis of insight posts can model the overall topics discussed on the GNET Research blog.
 
