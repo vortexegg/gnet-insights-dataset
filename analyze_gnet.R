@@ -1,4 +1,4 @@
-# See the GNET Insights Dataset project repostiory on GitHub for more information:
+# See the GNET Insights Dataset project repository on GitHub for more information:
 # https://github.com/vortexegg/gnet-insights-dataset
 
 # install.packages("tidyverse")
@@ -17,11 +17,13 @@ library(tidytext)
 library(cowplot)
 library(gt)
 
-gnet_df <- read.csv("~/Code/572_data_science/gnet-insights-dataset/gnet_insights.csv")
+# Load the GNET Insights Dataset into a data frame from a CSV file
+gnet_df <- read.csv("gnet_insights.csv")
 
 # Data cleaning
 
-# Convert nested list-value fields into R vectors for later unnesting.
+# Convert nested list-value fields from a "['value1','value2',...]" format into R vectors for later unnesting.
+# Strip the brackets, single quotes, and commas before splitting into a vector.
 gnet_df <- gnet_df %>%
   mutate(author_names = str_replace(author_names, "^\\[", "")) %>% # Process author names
   mutate(author_names = str_replace(author_names, "\\]$", "")) %>%
@@ -90,7 +92,7 @@ insight_year_stats <- insights_per_year %>%
 insight_years_outliers <- insights_per_year %>% 
   filter(n < insight_year_stats$mean / 2)
 # The outlier years are 2024 and 2019.
-# 2024 is the present year which is still ongoing, so that makes ssense.
+# 2024 is the present year which is still ongoing, so that makes sense.
 # 2019 has only 7 insights, why is that?
 
 # Filter to only insights in 2019 and see when they were published during the year.
